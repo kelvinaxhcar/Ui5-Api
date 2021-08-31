@@ -1,5 +1,5 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller",
+	"invent/clientes/controller/BaseController",
 	"sap/ui/core/routing/History",
 	"sap/ui/model/json/JSONModel"
 ], function (Controller , History, JSONModel) {
@@ -9,7 +9,8 @@ sap.ui.define([
 
 		onInit: function () {
 			this.getView().addStyleClass(this.getOwnerComponent().getContentDensityClass());
-			this.buscarNoServidor()
+			this.attachRouter("listaName", this.buscarNoServidor())
+			
 		},
 
 
@@ -35,21 +36,14 @@ sap.ui.define([
 		},
 		
 		buscarNoServidor: async function (){
-			const dados = await fetch(`https://localhost:5001/Cliente`);
+			const dados = await fetch(`/api/Cliente`);
 			const cliente = await dados.json();
-
-
-			var oModel = new JSONModel();
 			
-			for (var i = 0;i<cliente.length;i++){
-				oModel = cliente[i];
-				console.log(cliente[i])
-				
-			}
+			const oModel = new JSONModel(cliente)
 			this.getView().setModel(oModel, "cliente");
+			
+			
 		}
 		
-		
-
 	});
 });

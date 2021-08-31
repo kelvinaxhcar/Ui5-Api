@@ -2,7 +2,12 @@
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc">
 	<Page showNavButton="true" navButtonPress=".onNavBack" title="Lista de clientes">
-		<Table>
+		<Table items="{
+        path : 'cliente>/',
+        sorter:{
+            path :  'id'
+            }
+            }">
 			<headerToolbar>
 				
 			</headerToolbar>
@@ -22,9 +27,9 @@
 			<items>
 				<ColumnListItem vAlign="Middle" type="Navigation" press="onPress">
 					<cells>
-						<Text text="{cliente>/id}" wrapping="false" />
-						<Text text="{cliente>/nome}" wrapping="false"/>
-						<Text text="{cliente>/cpf}" />
+						<Text text="{cliente>id}" wrapping="false" />
+						<Text text="{cliente>nome}" wrapping="false"/>
+						<Text text="{cliente>cpf}" />
 					</cells>
 				</ColumnListItem>
 			</items>

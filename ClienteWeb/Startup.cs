@@ -49,6 +49,7 @@ namespace ClienteWeb
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ClienteWeb v1"));
             }
 
+            app.UseDefaultFiles();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseFileServer();

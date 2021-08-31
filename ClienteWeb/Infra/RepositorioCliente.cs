@@ -12,7 +12,7 @@ namespace ClienteWeb.Repositorio
         public SqlConnection Open()
         {
             var dbCoonection = new SqlConnection(
-                "Server=147.182.248.84;Database=ClienteInvent;UID=sa;Password=");
+                "Server=147.182.248.84;Database=ClienteInvent;UID=sa;Password=7878w1zKl");
 
             dbCoonection.Open();
 
@@ -54,6 +54,47 @@ namespace ClienteWeb.Repositorio
 
             
             return listDeClientes;
+        }
+        
+        public Cliente BuscarPeloId(int id)
+        {
+            var cliente = new Cliente();
+            using (var dbConnection = Open())
+            {
+                using (var command = dbConnection.CreateCommand())
+                {
+                    var query = $"SELECT * FROM Cliente WHERE  Id_Cliente = {id}";
+
+                    command.CommandText = query;
+                    var dbReader = command.ExecuteReader();
+
+                    while (dbReader.Read())
+                    {
+
+                        cliente.Id = dbReader.IsDBNull("Id_Cliente") ? default : dbReader.GetInt32("Id_Cliente");
+                        cliente.Nome = dbReader.IsDBNull("Nome") ? default : dbReader.GetString("Nome");
+                        cliente.Cpf = dbReader.IsDBNull("Cpf") ? default : dbReader.GetString("Cpf");
+                    }
+                }
+            }
+            return cliente;
+        }
+        
+        public void Inserir(Cliente cliente)
+        {
+            using (var dbConnection = Open())
+            {
+                using (var command = dbConnection.CreateCommand())
+                {
+                    var query = $"INSERT INTO Cliente(nome, Cpf) VALUES ( '{cliente.Nome}', '{cliente.Cpf}')";
+
+                    command.CommandText = query;
+
+                    
+
+                    command.ExecuteNonQuery();
+                }
+            }
         }
     }
 }
