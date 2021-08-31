@@ -12,7 +12,7 @@ namespace ClienteWeb.Repositorio
         public SqlConnection Open()
         {
             var dbCoonection = new SqlConnection(
-                "Server=147.182.248.84;Database=ClienteInvent;UID=sa;Password=7878w1zKl");
+                "Server=147.182.248.84;Database=ClienteInvent;UID=sa;Password=");
 
             dbCoonection.Open();
 
