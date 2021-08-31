@@ -1,0 +1,50 @@
+<mvc:View
+		controllerName="invent.clientes.controller.Detail"
+		xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:c="sap.ui.core" xmlns:t="sap.ui.table" xmlns:f="sap.ui.layout.form" height="100%">
+    <Page showNavButton="true" navButtonPress=".onNavBack" enableScrolling="true" title="Detalhe do cliente" class="sapUiResponsivePadding--header sapUiResponsivePadding--footer">
+        <content>
+            <VBox fitContainer="true">
+                <f:SimpleForm id="SimpleFormDisplay480" minWidth="1024" maxContainerCols="2" editable="false" layout="ResponsiveGridLayout"  labelSpanL="4" labelSpanM="4" emptySpanL="0" emptySpanM="0" columnsL="2" columnsM="2">
+                    <f:content>
+                        <c:Title text="Identidade" />
+                        <Label text="Nome" />
+                        <Text text="{invoice>Nome}" />
+                        <Label text="CPF" />
+                        <Text text="{invoice>Cpf}" />
+                        
+
+
+                        <c:Title text="Endereço" />
+                        <Label text="Município" />
+                        <Text text="{invoice>Municipio}" />
+                        <Label text="Rua" />
+                        <Text text="{invoice>Rua}" />
+                        <Label text="CEP" />
+                        <Text text="{invoice>Cep}" />
+                        <Label text="Numero" />
+                        <Text text="{invoice>Numero}" />
+                            <Label text="Bairro" />
+                    <Text text="{invoice>Bairro}" />
+                        <Label text="UF" />
+                    <Text text="{invoice>Uf}" />
+                    </f:content>
+                    <f:content>
+                        <c:Title text="Contato" />
+                        <Label text="Email" />
+                    <Text text="{invoice>Email}" />
+                        <Label text="Telefone" />
+                    <Text text="{invoice>Telefone}" />
+
+
+                        
+                    </f:content>
+                    <f:layoutData>
+                        <FlexItemData shrinkFactor="0" backgroundDesign="Solid" styleClass="sapContrastPlus" />
+                    </f:layoutData>
+                </f:SimpleForm>
+
+            </VBox>
+        </content>
+
+    </Page>
+</mvc:View>
