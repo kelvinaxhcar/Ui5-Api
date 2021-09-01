@@ -9,7 +9,7 @@ sap.ui.define([
 
 		onInit: function () {
 			this.getView().addStyleClass(this.getOwnerComponent().getContentDensityClass());
-			this.attachRouter("listaName", this.buscarNoServidor())
+			this.attachRouter("listaName", this.buscarNoServidor)
 			
 		},
 
@@ -35,14 +35,14 @@ sap.ui.define([
 			}
 		},
 		
+		
+		
 		buscarNoServidor: async function (){
 			const dados = await fetch(`/api/Cliente`);
 			const cliente = await dados.json();
 			
 			const oModel = new JSONModel(cliente)
 			this.getView().setModel(oModel, "cliente");
-			
-			
 		}
 		
 	});

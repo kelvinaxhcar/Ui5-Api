@@ -108,11 +108,26 @@ namespace ClienteWeb.Repositorio
 
                     command.CommandText = query;
 
-                    
-
                     command.ExecuteNonQuery();
                 }
             }
         }
+        
+        public void Deletar(Cliente cliente)
+        {
+            using (var dbConnection = Open())
+            {
+                using (var command = dbConnection.CreateCommand())
+                {
+                    var query = $"DELETE FROM Cliente WHERE Id_Cliente = {cliente.Id}";
+                    command.CommandText = query;
+
+                    
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        
     }
 }

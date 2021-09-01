@@ -31,16 +31,16 @@ sap.ui.define([
 		},
 		criandoModeloJsonCliente: function(){
 			let clientEmBranco = {
-				nome: "",
-				cpf: "",
+				nome: "Kelvin",
+				cpf: "45434322323",
 				cep: "74640140",
-				rua: "",
-				bairro: "",
-				numero: "",
-				estado: "",
-				municipio: "",
-				email: "",
-				telefone: ""
+				rua: "225",
+				bairro: "Leste vila Nova",
+				numero: "333",
+				estado: "GO",
+				municipio: "Goiania",
+				email: "kaxhcar",
+				telefone: "62998010102"
 				
 			};
 			return clientEmBranco;
@@ -88,24 +88,23 @@ sap.ui.define([
 				cliente.logradouro != "" && cliente.bairro != "" && cliente.gia != "" && cliente.uf != "" && cliente.localidade != "") {
 				return ModelCliente;
 			} else {
-				MessageBox.warning("Preencha todos os campos");
+				
 				return null;
 			}
 
 		},
 
-		salvarNoBancoDeDados: function () {
+		salvarNoBancoDeDados:async function () {
 
 			
 			let cliente = this.verificaSeOsCamposEstaoVazios(this.getClienteModel())
+			if (!cliente){
 
-			if (cliente != null){
-				MessageBox.success("Registro salvo com sucesso");
-				this.setClienteModel(this.criandoModeloJsonCliente());
+				MessageBox.warning("Preencha todos os campos");
+				return;
 			}
-			console.log(cliente)
-			const uri = '/api/Cliente';
-			fetch(uri, {
+
+			const uri = await fetch('/api/Cliente', {
 				method: 'POST',
 				headers: {
 					'Accept': 'application/json',
@@ -113,8 +112,13 @@ sap.ui.define([
 				},
 				body: JSON.stringify(cliente)
 			});
+			const content = await uri.json();
+			MessageBox.alert(content.message)
+			console.log(content);
 
 		},
+
+	
 
 	});
 });
