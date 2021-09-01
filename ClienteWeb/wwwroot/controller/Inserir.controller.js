@@ -31,16 +31,17 @@ sap.ui.define([
 		},
 		criandoModeloJsonCliente: function(){
 			let clientEmBranco = {
-				cep: "",
 				nome: "",
 				cpf: "",
-				email: "",
-				telefone: "",
-				logradouro: "",
+				cep: "74640140",
+				rua: "",
 				bairro: "",
-				gia: "",
-				uf: "",
-				localidade: ""
+				numero: "",
+				estado: "",
+				municipio: "",
+				email: "",
+				telefone: ""
+				
 			};
 			return clientEmBranco;
 		},
@@ -65,11 +66,12 @@ sap.ui.define([
 
 					cliente.logradouro = endereco.logradouro;
 					cliente.bairro = endereco.bairro;
-					cliente.gia = endereco.gia;
-					cliente.uf = endereco.uf;
-					cliente.localidade = endereco.localidade;
+					cliente.numero = endereco.gia;
+					cliente.estado = endereco.uf;
+					cliente.municipio = endereco.localidade;
 
 				}
+				console.log(cliente)
 
 
 				this.setClienteModel(cliente);
@@ -102,12 +104,17 @@ sap.ui.define([
 				this.setClienteModel(this.criandoModeloJsonCliente());
 			}
 			console.log(cliente)
-			
-			
-			
+			const uri = '/api/Cliente';
+			fetch(uri, {
+				method: 'POST',
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(cliente)
+			});
 
-		}
-
+		},
 
 	});
 });

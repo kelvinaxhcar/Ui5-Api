@@ -34,11 +34,7 @@
 				</ColumnListItem>
 			</items>
 		</Table>
-
-		<Button text="Salvar" press=".buscarNoServidor" width="180px"  />
-			
 		
-
 	</Page>
 
 </mvc:View>

@@ -18,7 +18,7 @@ sap.ui.define([
 			var oItem = oEvent.getSource();
 			var oRouter = this.getOwnerComponent().getRouter();
 			oRouter.navTo("detail", {
-				invoicePath: window.encodeURIComponent(oItem.getBindingContext("invoice").getPath().substr(1))
+				id: window.encodeURIComponent(oItem.getBindingContext("cliente").getProperty("id"))
 			});
 		},
 		

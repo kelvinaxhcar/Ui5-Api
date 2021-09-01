@@ -36,13 +36,13 @@
 							</f:FormElement>
 							<f:FormElement label="Rua">
 								<f:fields>
-									<Input placeholder="Rua" valueLiveUpdate="true" value="{cliente>/logradouro}"/>
+									<Input placeholder="Rua" valueLiveUpdate="true" value="{cliente>/rua}"/>
 								</f:fields>
 							</f:FormElement>
 							<f:FormElement label="Bairro/Numero">
 								<f:fields>
 									<Input placeholder="Bairro" id="Bairro" value="{cliente>/bairro}" />
-									<Input type="Number" placeholder="Numero" value="{cliente>/gia}" >
+									<Input type="Number" placeholder="Numero" value="{cliente>/numero}" >
 										<layoutData>
 											<l:GridData span="XL2 L2 M2 S4" />
 										</layoutData>
@@ -52,12 +52,12 @@
 							
 							<f:FormElement label="Estado">
 								<f:fields >
-									<Input placeholder="Estado" value="{cliente>/uf}"/>
+									<Input placeholder="Estado" value="{cliente>/estado}"/>
 								</f:fields>
 							</f:FormElement>
 							<f:FormElement label="Cidade">
 								<f:fields >
-									<Input placeholder="Cidade" value="{cliente>/localidade}"/>
+									<Input placeholder="Cidade" value="{cliente>/municipio}"/>
 								</f:fields>
 							</f:FormElement>
 						</f:formElements>

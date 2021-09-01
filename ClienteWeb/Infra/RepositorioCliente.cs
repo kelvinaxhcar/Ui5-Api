@@ -45,6 +45,7 @@ namespace ClienteWeb.Repositorio
                             Nome = dbReader.IsDBNull("Nome") ? default : dbReader.GetString("Nome"),
                             Cpf = dbReader.IsDBNull("Cpf") ? default : dbReader.GetString("Cpf"),
                             
+                            
                         };
                         listDeClientes.Add(cliente);
                         
@@ -74,6 +75,14 @@ namespace ClienteWeb.Repositorio
                         cliente.Id = dbReader.IsDBNull("Id_Cliente") ? default : dbReader.GetInt32("Id_Cliente");
                         cliente.Nome = dbReader.IsDBNull("Nome") ? default : dbReader.GetString("Nome");
                         cliente.Cpf = dbReader.IsDBNull("Cpf") ? default : dbReader.GetString("Cpf");
+                        cliente.Municipio = dbReader.IsDBNull("Municipio") ? default : dbReader.GetString("Municipio");
+                        cliente.Rua = dbReader.IsDBNull("Rua") ? default : dbReader.GetString("Rua");
+                        cliente.Cep = dbReader.IsDBNull("Cep") ? default : dbReader.GetString("Cep");
+                        cliente.Bairro = dbReader.IsDBNull("Bairro") ? default : dbReader.GetString("Bairro");
+                        cliente.Estado = dbReader.IsDBNull("Estado") ? default : dbReader.GetString("Estado");
+                        cliente.Numero = dbReader.IsDBNull("Numero") ? default : dbReader.GetInt32("Numero");
+                        cliente.Email = dbReader.IsDBNull("Email") ? default : dbReader.GetString("Email");
+                        cliente.Telefone = dbReader.IsDBNull("Telefone") ? default : dbReader.GetString("Telefone");
                     }
                 }
             }
@@ -86,7 +95,16 @@ namespace ClienteWeb.Repositorio
             {
                 using (var command = dbConnection.CreateCommand())
                 {
-                    var query = $"INSERT INTO Cliente(nome, Cpf) VALUES ( '{cliente.Nome}', '{cliente.Cpf}')";
+                    var query = $"INSERT INTO Cliente(nome, Cpf, Cep, Rua, Bairro, Numero, Estado, Municipio, Email, Telefone) VALUES ( '{cliente.Nome}', " +
+                                $"'{cliente.Cpf}', " +
+                                $"'{cliente.Cep}', " +
+                                $"'{cliente.Rua}', " +
+                                $"'{cliente.Bairro}', " +
+                                $"{cliente.Numero}, " +
+                                $"'{cliente.Estado}', " +
+                                $"'{cliente.Municipio}', " +
+                                $"'{cliente.Email}', " +
+                                $"'{cliente.Telefone}')";
 
                     command.CommandText = query;
 

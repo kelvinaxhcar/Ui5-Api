@@ -65,7 +65,7 @@
           "target": "overview"
         },
         {
-          "pattern": "detail/{invoicePath}",
+          "pattern": "detail/{id}",
           "name": "detail",
           "target": "detail"
         },
@@ -80,8 +80,6 @@
           "target": "cadastroDeCliente"
         }
       ],
-
-
 
 
       
