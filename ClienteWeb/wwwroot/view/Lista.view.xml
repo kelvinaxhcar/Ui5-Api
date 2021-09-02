@@ -2,6 +2,13 @@
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc">
 	<Page showNavButton="true" navButtonPress=".onNavBack" title="Lista de clientes">
+		<headerContent>
+			<Button icon="sap-icon://create-form" text="Novo Cadastro" tooltip="Naveg" press="navegarParaCadastro" />
+		
+		
+		</headerContent>
+
+		
 		<Table items="{
         path : 'cliente>/',
         sorter:{
@@ -9,8 +16,16 @@
             }
             }">
 			<headerToolbar>
-				
+				<OverflowToolbar id="otbSubheader">
+					<ToolbarSpacer/>
+					<SearchField ariaLabelledBy="text1" id="maxPrice" liveChange="onFilter">
+						<layoutData><OverflowToolbarLayoutData maxWidth="300px" shrinkable="true" priority="NeverOverflow"/></layoutData>
+					</SearchField>
+
+				</OverflowToolbar>
 			</headerToolbar>
+			
+		
 			
 			<columns>
 				<Column>

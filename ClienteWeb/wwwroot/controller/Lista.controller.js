@@ -35,14 +35,17 @@ sap.ui.define([
 			}
 		},
 		
-		
-		
 		buscarNoServidor: async function (){
 			const dados = await fetch(`/api/Cliente`);
 			const cliente = await dados.json();
 			
 			const oModel = new JSONModel(cliente)
 			this.getView().setModel(oModel, "cliente");
+		},
+
+		navegarParaCadastro : function (){
+			var oRouter = this.getOwnerComponent().getRouter();	
+				 oRouter.navTo("cadastroDeCliente");
 		}
 		
 	});

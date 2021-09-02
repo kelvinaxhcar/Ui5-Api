@@ -1,8 +1,9 @@
 sap.ui.define([
 	"invent/clientes/controller/BaseController",
 	"sap/ui/core/routing/History",
-	"sap/ui/model/json/JSONModel"
-], function (Controller, History, JSONModel) {
+	"sap/ui/model/json/JSONModel",
+	"sap/m/MessageBox"
+], function (Controller, History, JSONModel,MessageBox) {
 	"use strict";
 
 	return Controller.extend("invent.clientes.controller.Detail", {
@@ -25,6 +26,15 @@ sap.ui.define([
 			
 		},
 
+		navegarParaEditar: function (oEvent) {
+			var oItem = oEvent.getSource();
+			var oRouter = this.getOwnerComponent().getRouter();
+			var cliente = this.getView().getModel("cliente").getData();
+			oRouter.navTo("AtualizarName", {
+				id: window.encodeURIComponent(cliente.id)
+			});
+		},
+
 		onNavBack: function () {
 			var oHistory = History.getInstance();
 			var sPreviousHash = oHistory.getPreviousHash();
@@ -39,6 +49,7 @@ sap.ui.define([
 		
 
 		deletarCliente:async function (oEvent){
+
 			const cliente = this.getView().getModel("cliente").getData();
 			console.log(cliente.id)
 			const uri = await fetch(`/api/Cliente/${cliente.id}`, {
@@ -51,6 +62,14 @@ sap.ui.define([
 			const content = await uri.json();
 			
 			console.log(content);
+		},
+
+		
+
+		anavegarParaEditar: function(){
+			console.log("Aqui")
+			var oRouter = this.getOwnerComponent().getRouter();
+			oRouter.navTo("AtualizarName");
 		}
 	});
 });

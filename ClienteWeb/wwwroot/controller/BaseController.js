@@ -19,7 +19,19 @@ sap.ui.define([
            }
              
            
-        }
+        },
+
+        navegarParaCadastro : function (){
+			var oRouter = this.getOwnerComponent().getRouter();
+				 oRouter.navTo("cadastroDeCliente");
+                 console.log("Aqui")
+		},
+        teste : function (){
+			
+                 console.log("No base controller")
+		},
+
+
 
     });
 });

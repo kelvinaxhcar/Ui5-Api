@@ -78,6 +78,11 @@
           "pattern": "cadastroDeCliente",
           "name": "cadastroDeCliente",
           "target": "cadastroDeCliente"
+        },
+        {
+          "pattern": "Atualizar/{id}",
+          "name": "AtualizarName",
+          "target": "AtualizarTarget"
         }
       ],
 
@@ -99,6 +104,11 @@
         "cadastroDeCliente": {
           "viewId": "cadastroDeCliente",
           "viewName": "Inserir"
+        }
+        ,
+        "AtualizarTarget": {
+          "viewId": "atualizar",
+          "viewName": "Atualizar"
         }
       }
     }

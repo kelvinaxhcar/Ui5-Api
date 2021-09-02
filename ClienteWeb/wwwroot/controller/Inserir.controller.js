@@ -111,7 +111,9 @@ sap.ui.define([
 					'Content-Type': 'application/json'
 				},
 				body: JSON.stringify(cliente)
+				
 			});
+			console.log(cliente)
 			const content = await uri.json();
 			MessageBox.alert(content.message)
 			console.log(content);
