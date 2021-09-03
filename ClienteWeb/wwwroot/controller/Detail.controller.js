@@ -2,8 +2,9 @@ sap.ui.define([
 	"invent/clientes/controller/BaseController",
 	"sap/ui/core/routing/History",
 	"sap/ui/model/json/JSONModel",
-	"sap/m/MessageBox"
-], function (Controller, History, JSONModel,MessageBox) {
+	"sap/m/MessageBox",
+	'sap/m/MessageToast'
+], function (Controller, History, JSONModel,MessageBox, MessageToast) {
 	"use strict";
 
 	return Controller.extend("invent.clientes.controller.Detail", {
@@ -51,18 +52,31 @@ sap.ui.define([
 		deletarCliente:async function (oEvent){
 
 			const cliente = this.getView().getModel("cliente").getData();
-			console.log(cliente.id)
-			const uri = await fetch(`/api/Cliente/${cliente.id}`, {
-				method: 'DELETE',
-				headers: {
-					'Accept': 'application/json',
-					'Content-Type': 'application/json'
+			var oRouter = this.getOwnerComponent().getRouter();
+			
+			MessageBox.warning("Deseja realmente deletar cliente?.", {
+				actions: [MessageBox.Action.OK, MessageBox.Action.CANCEL],
+				emphasizedAction: MessageBox.Action.OK,
+				onClose: async function (sAction) {
+					if (sAction === "OK"){
+						const uri = await fetch(`/api/Cliente/${cliente.id}`, {
+							method: 'DELETE',
+							headers: {
+								'Accept': 'application/json',
+								'Content-Type': 'application/json'
+							}
+						});
+						const content = await uri.json();
+						oRouter.navTo("listaName");
+						
+					}else {
+						MessageToast.show("Operação cancelada");
+					}
 				}
 			});
-			const content = await uri.json();
-			
-			console.log(content);
 		},
+		
+		
 
 		
 
