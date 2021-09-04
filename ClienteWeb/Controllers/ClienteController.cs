@@ -20,7 +20,22 @@ namespace ClienteWeb.Controllers
 
             clientes = _repositorioCliente.ListarTodos();
 
+            var cont = clientes.Count;
+
             return Ok(clientes);
+        }
+        
+        [HttpGet("numeroDeClientes")]
+        public IActionResult GetQuantidadeDeClientes()
+        {
+            List<Cliente> clientes = new List<Cliente>();
+
+
+            clientes = _repositorioCliente.ListarTodos();
+
+            var cont = clientes.Count;
+
+            return Ok(cont);
         }
 
         [HttpGet("{id}")]

@@ -12,8 +12,7 @@ sap.ui.define([
 			this.attachRouter("listaName", this.buscarNoServidor)
 			
 		},
-
-
+		
 		onPress: function (oEvent) {
 			var oItem = oEvent.getSource();
 			var oRouter = this.getOwnerComponent().getRouter();
@@ -22,17 +21,9 @@ sap.ui.define([
 			});
 		},
 		
-
 		onNavBack: function () {
-			var oHistory = History.getInstance();
-			var sPreviousHash = oHistory.getPreviousHash();
-
-			if (sPreviousHash !== undefined) {
-				window.history.go(-1);
-			} else {
 				var oRouter = this.getOwnerComponent().getRouter();
-				oRouter.navTo("overview", {}, true);
-			}
+				oRouter.navTo("overview");
 		},
 		
 		buscarNoServidor: async function (){

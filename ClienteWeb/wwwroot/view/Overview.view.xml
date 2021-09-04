@@ -24,12 +24,11 @@
 				<layoutData>
 					<f:GridContainerItemLayoutData minRows="2" columns="2" />
 				</layoutData>
-				<TileContent unit="EUR" footer="Current Quarter">
-					<ImageContent src="sap-icon://activity-individual" />
+				<TileContent footer="Quantidade de clientes">
+					<NumericContent value="{NumeroDeCliente>/cont}" />
 				</TileContent>
+				
 			</GenericTile>
-
-
 			
 			
 			<GenericTile header="Cadastro de clientes"  press="navegarParaCadastro">

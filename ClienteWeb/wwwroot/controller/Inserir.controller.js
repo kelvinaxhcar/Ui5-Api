@@ -83,8 +83,16 @@ sap.ui.define([
 		
 		verificaSeOsCamposEstaoVazios: function (ModelCliente) {
 			let cliente = ModelCliente;
-			if (cliente.cep != "" && cliente.nome != "" && cliente.cpf != "" && cliente.email != "" && cliente.telefone != "" &&
-				cliente.logradouro != "" && cliente.bairro != "" && cliente.numero != "" && cliente.estado != "" && cliente.localidade != "") {
+			if (cliente.cep != "" 
+				&& cliente.nome != "" 
+				&& cliente.cpf != ""
+				&& cliente.email != "" 
+				&& cliente.telefone != "" 
+				&& cliente.logradouro != "" 
+				&& cliente.bairro != "" 
+				&& cliente.numero != "" 
+				&& cliente.estado != "" 
+				&& cliente.localidade != "") {
 				return ModelCliente;
 			} else {
 				
