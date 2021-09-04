@@ -99,9 +99,7 @@
 			</f:Form>
 		</VBox>
 
-		<l:Grid  class="sapUiSmallMargin">
-			<Button text="Salvar" class="sapUiSmallMarginBottom" press=".salvarNoBancoDeDados" width="180px" ariaHasPopup="Dialog" />
-		</l:Grid>
+		
 
 		
 	</Page>

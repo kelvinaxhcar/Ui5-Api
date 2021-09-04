@@ -49,7 +49,7 @@
 				</ColumnListItem>
 			</items>
 		</Table>
-		
+		<BusyDialog id="BusyDialog" />
 	</Page>
 
 </mvc:View>

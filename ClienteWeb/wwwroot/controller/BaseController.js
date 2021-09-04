@@ -30,6 +30,19 @@ sap.ui.define([
 			
                  console.log("No base controller")
 		},
+        
+        handlePress: function (estado) {
+            var oDialog = this.byId("BusyDialog");
+            
+            if(estado === "carregando"){
+                oDialog.open();
+            }
+            if (estado === "carregado"){
+                    oDialog.close();
+            }
+
+            
+        }
 
 
 

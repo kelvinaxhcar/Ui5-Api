@@ -1,5 +1,5 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller",
+	"invent/clientes/controller/BaseController",
 	"sap/ui/core/routing/History",
 	"sap/m/MessageBox",
 	"sap/ui/model/json/JSONModel"
@@ -15,9 +15,7 @@ sap.ui.define([
 
 			this.setClienteModel(this.criandoModeloJsonCliente());
 		},
-
 		
-
 		onNavBack: function () {
 			var oHistory = History.getInstance();
 			var sPreviousHash = oHistory.getPreviousHash();
@@ -31,7 +29,7 @@ sap.ui.define([
 		},
 		criandoModeloJsonCliente: function(){
 			let clientEmBranco = {
-				nome: "Kelvin",
+				nome: "Kelvin Mateus Axhcar de Jesus",
 				cpf: "45434322323",
 				cep: "74640140",
 				rua: "225",
@@ -40,7 +38,7 @@ sap.ui.define([
 				estado: "GO",
 				municipio: "Goiania",
 				email: "kaxhcar",
-				telefone: "62998010102"
+				telefone: "62999999999"
 				
 			};
 			return clientEmBranco;
@@ -61,6 +59,8 @@ sap.ui.define([
 				if (cliente.cep == "") {
 					MessageBox.warning("Preencha todos os campos");
 				} else {
+					this.handlePress("carregando");
+					
 					const dados = await fetch(`https://viacep.com.br/ws/${cliente.cep}/json/`);
 					const endereco = await dados.json();
 
@@ -70,10 +70,10 @@ sap.ui.define([
 					cliente.estado = endereco.uf;
 					cliente.municipio = endereco.localidade;
 
+					this.handlePress("carregado");
+
 				}
-				console.log(cliente)
-
-
+				
 				this.setClienteModel(cliente);
 			} catch (error) {
 				MessageBox.error(`Erro ao fazer consulta! ${error}`);
@@ -81,11 +81,10 @@ sap.ui.define([
 		},
 
 		
-
 		verificaSeOsCamposEstaoVazios: function (ModelCliente) {
 			let cliente = ModelCliente;
 			if (cliente.cep != "" && cliente.nome != "" && cliente.cpf != "" && cliente.email != "" && cliente.telefone != "" &&
-				cliente.logradouro != "" && cliente.bairro != "" && cliente.gia != "" && cliente.uf != "" && cliente.localidade != "") {
+				cliente.logradouro != "" && cliente.bairro != "" && cliente.numero != "" && cliente.estado != "" && cliente.localidade != "") {
 				return ModelCliente;
 			} else {
 				
@@ -104,6 +103,8 @@ sap.ui.define([
 				return;
 			}
 
+			this.handlePress("carregando");
+			
 			const uri = await fetch('/api/Cliente', {
 				method: 'POST',
 				headers: {
@@ -113,10 +114,17 @@ sap.ui.define([
 				body: JSON.stringify(cliente)
 				
 			});
+
+			this.handlePress("carregado");
 			console.log(cliente)
 			const content = await uri.json();
-			MessageBox.alert(content.message)
-			console.log(content);
+
+			var oRouter = this.getOwnerComponent().getRouter();
+			MessageBox.alert(content.message, {
+				onClose: function () {
+					oRouter.navTo("listaName", {}, true);
+				}
+			});
 
 		},
 

@@ -12,18 +12,24 @@ sap.ui.define([
 		onInit: function () {
 			var oRouter = this.getOwnerComponent().getRouter();
 			oRouter.getRoute("detail").attachPatternMatched(this._onObjectMatched, this);
-			
-			
-			
 		},
 		
 		_onObjectMatched:async function (oEvent) {
-			this.Id = oEvent.getParameter("arguments").id;
+			this.handlePress("carregando");
 			
+			this.Id = oEvent.getParameter("arguments").id;
 			const dados = await fetch(`/api/Cliente/${this.Id}`);
 			const cliente = await dados.json();
 			const oModel = new JSONModel(cliente);
 			this.getView().setModel(oModel, "cliente");
+			
+			if (!cliente.nome){
+				var oRouter = this.getOwnerComponent().getRouter();
+				oRouter.navTo("listaName", {}, true);
+			}
+			
+			
+			this.handlePress("carregado");
 			
 		},
 
@@ -66,18 +72,18 @@ sap.ui.define([
 								'Content-Type': 'application/json'
 							}
 						});
+						
 						const content = await uri.json();
 						oRouter.navTo("listaName");
+						
 						
 					}else {
 						MessageToast.show("Operação cancelada");
 					}
 				}
 			});
+			
 		},
-		
-		
-
 		
 
 		anavegarParaEditar: function(){

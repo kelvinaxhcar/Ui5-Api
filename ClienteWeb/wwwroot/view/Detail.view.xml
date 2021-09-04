@@ -1,6 +1,6 @@
 <mvc:View
 		controllerName="invent.clientes.controller.Detail"
-		xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:c="sap.ui.core" xmlns:t="sap.ui.table" xmlns:f="sap.ui.layout.form" height="100%">
+		xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:c="sap.ui.core" xmlns:t="sap.ui.table" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" height="100%">
     <Page showNavButton="true" navButtonPress=".onNavBack" enableScrolling="true" title="Detalhe do cliente" class="sapUiResponsivePadding--header sapUiResponsivePadding--footer">
         
         <headerContent>
@@ -58,13 +58,14 @@
                         <FlexItemData shrinkFactor="0" backgroundDesign="Solid" styleClass="sapContrastPlus" />
                     </f:layoutData>
                 </f:SimpleForm>
+
                
-                
 
             </VBox>
             
         </content>
-        
-
+        <BusyDialog id="BusyDialog" />
     </Page>
+    
+    
 </mvc:View>

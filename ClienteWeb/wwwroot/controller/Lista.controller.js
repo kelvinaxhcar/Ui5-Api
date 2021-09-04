@@ -36,11 +36,14 @@ sap.ui.define([
 		},
 		
 		buscarNoServidor: async function (){
+			this.handlePress("carregando");
+			
 			const dados = await fetch(`/api/Cliente`);
 			const cliente = await dados.json();
-			
 			const oModel = new JSONModel(cliente)
 			this.getView().setModel(oModel, "cliente");
+			
+			this.handlePress("carregado");
 		},
 
 		navegarParaCadastro : function (){

@@ -94,6 +94,6 @@
 			<Button text="Salvar" class="sapUiSmallMarginBottom" press=".salvarNoBancoDeDados" width="180px" ariaHasPopup="Dialog" />
 		</l:Grid>
 
-		
+		<BusyDialog id="BusyDialog" />
 	</Page>
 </core:View>
