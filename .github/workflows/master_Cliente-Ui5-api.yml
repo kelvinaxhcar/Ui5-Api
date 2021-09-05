@@ -53,5 +53,5 @@ jobs:
       with:
         app-name: 'Cliente-Ui5-api'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_f37264a87a3d47c49a5c7bced1d51670 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_447351e91be8440aaa066ffe3ff38c15 }}
         package: .
