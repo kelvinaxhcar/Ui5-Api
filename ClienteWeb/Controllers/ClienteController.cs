@@ -38,6 +38,23 @@ namespace ClienteWeb.Controllers
             return Ok(cont);
         }
 
+        [HttpGet("pesquizarClientePeloNome/{nome}")]
+        public IActionResult PesquizarClientePeloNome(string nome)
+        {
+            var cliente = new Cliente();
+            cliente.Nome = nome;
+            List<Cliente> clientesLista = new List<Cliente>();
+            clientesLista = _repositorioCliente.ProcurarPeloNome(cliente);
+
+            if (clientesLista.Count >= 1)
+            {
+                return Ok(clientesLista);
+            }
+
+            return NotFound();
+        }
+        
+
         [HttpGet("{id}")]
         public IActionResult GetClienteId(int id)
         {

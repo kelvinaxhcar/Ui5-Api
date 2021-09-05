@@ -18,17 +18,17 @@
 				<f:GridContainerSettings rowSize="84px" columnSize="84px" gap="8px" />
 			</f:layoutXS>
 
+			
 			<GenericTile
-				press="navegarParaLista"
-				header="Lista de clientes">
+					press="navegarParaLista" header="Lista de clientes" >
 				<layoutData>
 					<f:GridContainerItemLayoutData minRows="2" columns="2" />
 				</layoutData>
 				<TileContent footer="Quantidade de clientes">
-					<NumericContent value="{NumeroDeCliente>/cont}" />
+					<NumericContent value="{NumeroDeCliente>/cont}" icon="sap-icon://customer-briefing" />
 				</TileContent>
-				
 			</GenericTile>
+			
 			
 			
 			<GenericTile header="Cadastro de clientes"  press="navegarParaCadastro">
@@ -45,5 +45,10 @@
 
 		</f:GridContainer>
 	</ScrollContainer>
+		
+		
+		<BusyDialog id="BusyDialog" />
 </Page>
+	
+	
 </mvc:View>

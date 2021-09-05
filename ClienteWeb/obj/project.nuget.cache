@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "M0Gxxy/dH8/3X/CWTT6k5NPE3OkxoT9vpl4/7RlSkDnjFJXckr/N9m/j8MWiNXuQIdr5Z8MES0qMRBR4ZOm56Q==",
+  "dgSpecHash": "V3Z/KOgjzcIaKHI/7rOhBAiEvLo7auk/19woUA3YMpNCkvSabqypdu74v0AXBowt2blpEaq8LAL5SQWf7Qv1gw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Kelvin\\RiderProjects\\ClienteWeb\\ClienteWeb\\ClienteWeb.csproj",
   "expectedPackageFiles": [
@@ -29,7 +29,7 @@
     "C:\\Users\\Kelvin\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Kelvin\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Kelvin\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
-    "C:\\Users\\Kelvin\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
+    "C:\\Users\\Kelvin\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.1\\swashbuckle.aspnetcore.swagger.6.2.1.nupkg.sha512",
     "C:\\Users\\Kelvin\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
     "C:\\Users\\Kelvin\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.6.3\\swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512",
     "C:\\Users\\Kelvin\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",

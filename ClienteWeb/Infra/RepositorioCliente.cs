@@ -128,6 +128,37 @@ namespace ClienteWeb.Repositorio
             }
         }
 
-        
+        public List<Cliente> ProcurarPeloNome(Cliente cliente)
+        {
+            var listDeClientes = new List<Cliente>();
+
+            using (var dbConnection = Open())
+            {
+                using (var command = dbConnection.CreateCommand())
+                {
+                    command.CommandText = $"SELECT * FROM Cliente WHERE Nome like '{cliente.Nome}%'";
+
+                    var dbReader = command.ExecuteReader();
+
+                    while (dbReader.Read())
+                    {
+
+                        var clienteModel = new Cliente
+                        {
+                            Id = dbReader.IsDBNull("Id_Cliente") ? default : dbReader.GetInt32("Id_Cliente"),
+                            Nome = dbReader.IsDBNull("Nome") ? default : dbReader.GetString("Nome"),
+                            Cpf = dbReader.IsDBNull("Cpf") ? default : dbReader.GetString("Cpf"),
+                            
+                            
+                        };
+                        listDeClientes.Add(clienteModel);
+                        
+                    }
+                }
+            }
+
+            
+            return listDeClientes;
+        }
     }
 }

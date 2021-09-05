@@ -7,10 +7,12 @@
 	<Page title="Cadastro de clientes" showNavButton="true" navButtonPress=".onNavBack">
 
 		<customHeader>
+			<Text text="Name of the Tool" wrapping="false" />
 			<Bar>
+				
 				<contentRight>
-					<Button id="save" text="Save" type="Emphasized" visible="true" press="handleSavePress" />
-					<Button id="cancel" text="Cancel" visible="true" press=".onNavBack" />
+					<Button id="save" icon="sap-icon://save" text="Salvar" type="Emphasized" visible="true" press="handleSavePress" />
+					<Button id="cancel" icon="sap-icon://sys-cancel" type="Reject"  text="Cancelar" visible="true" press=".onNavBack" />
 				</contentRight>
 			</Bar>
 		</customHeader>

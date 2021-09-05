@@ -22,9 +22,8 @@ sap.ui.define([
 		},
 
 		buscarNoServidor: async function (){
-			console.log("oModel")
+			this.handlePress("carregando")
 			
-
 			const dados = await fetch(`/api/Cliente/numeroDeClientes`);
 			const cliente = await dados.json();
 			let numeroDeClientes = {
@@ -32,7 +31,7 @@ sap.ui.define([
 			};
 			const oModel = new JSONModel(numeroDeClientes)
 			this.getView().setModel(oModel, "NumeroDeCliente");
-			console.log(oModel)
+			this.handlePress("carregado")
 			
 		},
 
